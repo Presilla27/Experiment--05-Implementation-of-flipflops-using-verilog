@@ -106,35 +106,111 @@ Q(t+1)=T′Q(t)+TQ(t)′
 
 
 
-### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+### PROGRAM
+SR Flip-Flop :-
+
+module exp_5_1(S,R,clk,Q,Qbar);
+input S,R,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=S|((~R)&Q);
+Qbar=R|((~S)&(Qbar));
+end
+endmodule
 
 
+D Flip-Flop :-
+module exp_5D(D,clk,Q,Qbar);
+input D,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin 
+Q=D;
+Qbar=~D;
+end
+endmodule
 
+JK Flip-Flop :-
+module exp_5_2(J,K,clk,Q,Qbar);
+input J,K,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=(J&(~Q))|((~K)&Q);
+Qbar=((~J)&(Qbar))|K&(~Qbar);
+end
+endmodule
 
+T Flip-Flop :-
+module exp_5_4(T,clk,Q,Qbar);
+input T,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=(T&(~Q))|((~T)&Q);
+Qbar=((~T)&Qbar)|(T&(~Qbar));
+end 
+endmodule
 
 
 ### RTL LOGIC FOR FLIPFLOPS 
+##SR Flip-flop:-
+
+![image](https://github.com/Presilla27/Experiment--05-Implementation-of-flipflops-using-verilog/assets/155127632/7d2c8e72-18da-457f-85a6-9f279fba3314)
+
+##D Flip-flop:-
 
 
+![image](https://github.com/Presilla27/Experiment--05-Implementation-of-flipflops-using-verilog/assets/155127632/7e937b3f-2186-4987-a281-ecfdffffff24)
 
 
+##JK Flip-flop:-
 
 
+![image](https://github.com/Presilla27/Experiment--05-Implementation-of-flipflops-using-verilog/assets/155127632/dd04ccce-d4f0-468f-863c-dde4dc684f6b)
+
+T Flip-flop:-
 
 
-
-### TIMING DIGRAMS FOR FLIP FLOPS 
-
+![image](https://github.com/Presilla27/Experiment--05-Implementation-of-flipflops-using-verilog/assets/155127632/28056f77-5e0d-4545-ac1b-165a9bc152b0)
 
 
+### TIMING DIGRAMS FOR FLIP FLOPS
+
+SR Flip-flop:-
+
+![image](https://github.com/Presilla27/Experiment--05-Implementation-of-flipflops-using-verilog/assets/155127632/593e4422-aa84-418c-85a1-ce7b216b83f4)
+
+ 
+D Flip-flop:-
+
+![image](https://github.com/Presilla27/Experiment--05-Implementation-of-flipflops-using-verilog/assets/155127632/fbfe77f0-c241-4297-94f1-6fdd88032d90)
 
 
+JK Flip-flop:-
+
+![image](https://github.com/Presilla27/Experiment--05-Implementation-of-flipflops-using-verilog/assets/155127632/1f0c65bc-7c38-46b5-9790-591ea121dea6)
+
+
+T Flip-flop:-
+![image](https://github.com/Presilla27/Experiment--05-Implementation-of-flipflops-using-verilog/assets/155127632/8117526f-09d2-4a00-9401-e506de670a50)
 
 
 
 ### RESULTS 
+
+Thus the SR,D, JK and T flip flops were implemented and the characteristic tables were verified
+
